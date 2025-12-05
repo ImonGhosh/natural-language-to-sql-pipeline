@@ -1,0 +1,3 @@
+-- SELECT * FROM hier_data_large.fact_metrics_large;
+-- SELECT * FROM hier_data_large.fact_campaign_metrics;
+-- SELECT * FROM hier_data_large.fact_segment_metrics;

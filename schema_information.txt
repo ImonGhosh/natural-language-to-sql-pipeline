@@ -1,0 +1,72 @@
+0. Main table: fact_metrics_large (what everything hangs on)
+
+Each row = one market slice, for example:
+
+“EU / Germany / Bavaria / Munich” with metrics like purchase intent, revenue, share, avg price, sample size.
+
+So think:
+
+Where: market, country, region, city
+
+What numbers: purchase intent, revenue, share, avg price, n
+
+All other tables just add more detail to that row.
+
+1. fact_campaign_metrics
+
+“What campaigns were running for this market/city, and what did they do?”
+
+Each row = one campaign linked to one fact row.
+
+Very roughly:
+
+fact_id → points to the row in fact_metrics_large (e.g. Munich)
+
+campaign_name → "Summer Sale 2025"
+
+channel → "Online", "TV", "OOH", etc.
+
+spend → how much money was spent
+
+impressions, clicks, conversions → basic campaign KPIs
+
+start_date, end_date → when the campaign ran
+
+So you can say things like:
+
+“In Munich, when purchase intent was 0.62, these 3 campaigns were active, with X € spend and Y conversions.”
+
+It’s just “marketing activity” tied back to your market metrics.
+
+2. fact_segment_metrics
+
+“How do the numbers look for different groups of people inside this market/city?”
+
+Each row = one segment for one fact row.
+
+fact_id → again, links to the main row (e.g. Munich)
+
+segment_code → short code like AGE_18_24, HEAVY_USER, NON_USER
+
+segment_label → readable text like "Age 18–24" or "Heavy users"
+
+m_purchase_intent, m_share, m_avg_price, m_n → the same type of metrics, but for that segment only
+
+| fact_id | segment_code | segment_label | m_purchase_intent | m_share | m_n |
+| ------- | ------------ | ------------- | ----------------- | ------- | --- |
+| 101     | AGE_18_24    | Age 18–24     | 0.75              | 0.30    | 60  |
+| 101     | AGE_25_44    | Age 25–44     | 0.60              | 0.22    | 80  |
+| 101     | AGE_45_64    | Age 45–64     | 0.50              | 0.18    | 40  |
+
+
+So you can answer:
+
+“In Munich, younger people have higher purchase intent and share than older groups.”
+
+Short version:
+
+fact_metrics_large = overall numbers per market / country / region / city
+
+fact_campaign_metrics = which campaigns & media ran there, with spend & performance
+
+fact_segment_metrics = breakdown of the same metrics by customer segment
