@@ -19,7 +19,7 @@ A Streamlit app that converts natural-language questions into safe, grounded MyS
 7. **Summarization** produces a brief description and optional insight about the returned data, using chat history for context.
 
 ## UI Screenshot
-<img src="./system_architecture.png" alt="High Level System Design" width="700">
+<img src="./app_screenshot.png" alt="High Level System Design" width="700">
 
 ## Setup
 1. Install Python dependencies (requires Python 3.10+):
@@ -57,5 +57,6 @@ The app starts a chat interface where you can submit natural-language questions,
 - Add dashboards or analytic visualizations on top of query results.
 - Introduce batching and caching to better serve medium-sized datasets.
 - Extend guardrails with semantic data policies (e.g., column-level access rules).
+
 
 
