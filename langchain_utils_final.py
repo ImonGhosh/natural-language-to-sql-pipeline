@@ -16,10 +16,12 @@ LANGCHAIN_API_KEY = os.getenv("LANGCHAIN_API_KEY")
 LANGCHAIN_PROJECT = os.getenv("LANGCHAIN_PROJECT")
 
 from langchain_community.utilities.sql_database import SQLDatabase
-from langchain.chains import create_sql_query_chain
+# from langchain.chains import create_sql_query_chain
+from langchain_classic.chains.sql_database.query import create_sql_query_chain
 from langchain_openai import ChatOpenAI
 from langchain_community.tools.sql_database.tool import QuerySQLDataBaseTool
-from langchain.memory import ChatMessageHistory
+from langchain_community.chat_message_histories.in_memory import ChatMessageHistory
+# from langchain.memory import ChatMessageHistory
 
 from operator import itemgetter
 

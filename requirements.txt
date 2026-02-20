@@ -1,0 +1,14 @@
+streamlit
+pandas
+openai
+langchain
+langchain-classic
+langchain-openai
+langchain-community
+langchain-core
+python-dotenv
+sqlalchemy
+pymysql
+pydantic
+chromadb
+cryptography
